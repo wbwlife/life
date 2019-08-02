@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-public class Main {
+public class  Main {
 
     public static Long urlToId(String url) {
         Long reInt = null;
