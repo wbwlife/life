@@ -20,5 +20,17 @@ public class isBST {
         }
         return helper(root.left,left,root.value) && helper(root.right,root.value,right);
     }
-
+    public static void printBSTKeys(TreeNode root,int min,int max){
+        if(root == null) return;
+        if(!(root.value<=min)){
+            printBSTKeys(root.left,min,max);
+        }
+        if(root.value>=min && root.value<=max){
+            System.out.println(root.value);
+        }
+        System.out.println(root.value);
+        if(!(root.value>=max)){
+            printBSTKeys(root.right,min,max);
+        }
+    }
 }

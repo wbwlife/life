@@ -3,10 +3,8 @@ import com.sun.deploy.util.StringUtils;
 
 import java.lang.reflect.Array;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.SQLOutput;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -26,11 +24,19 @@ public class  Main {
     }
 
     public static void main(String[] args) {
-    String a = "123";
-    String b = "123";
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1.equals(o2)) {
+                    return 0;
+                }
+                return o1 > o2 ? -1 : 1;
+            }
 
-    System.out.println(a==b);
-    System.out.println(a.equals(b));
+        });
+        queue.offer(1);
+        queue.offer(2);
+        queue.offer(1);
+        queue.forEach(System.out::println);
     }
-
 }
