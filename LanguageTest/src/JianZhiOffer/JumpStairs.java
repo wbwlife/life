@@ -1,6 +1,9 @@
 package JianZhiOffer;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JumpStairs {
     public static int solution(int number){
         if(number <= 0) {
@@ -20,7 +23,31 @@ public class JumpStairs {
         return second;
     }
 
+    public static void solution2(int number){
+       backTrack(number,new ArrayList<>(),0);
+    }
+
+    private static void backTrack(int number,List<Integer> list,int k) {
+        int i = 1;
+        while (i<3){
+            if(k+i<=number){
+                List<Integer> mlist = new ArrayList<>(list);
+                mlist.add(i);
+                if(k+i == number){
+                    for(Integer integer:mlist){
+                        System.out.print(integer+" ");
+                    }
+                    System.out.println();
+                }else {
+                    backTrack(number,mlist,k+i);
+                }
+            }
+            i++;
+        }
+
+    }
+
     public static void main(String[] args) {
-        System.out.println(solution(2));
+        solution2(4);
     }
 }
