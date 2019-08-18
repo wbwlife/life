@@ -1,6 +1,7 @@
 package JianZhiOffer;
 
 
+import javax.management.loading.MLet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,11 +44,36 @@ public class JumpStairs {
                 }
             }
             i++;
+            list.remove(list.size()-1);
         }
 
     }
 
+    public static void solution3(int number){
+        List<Integer> result = new ArrayList<>();
+        DFS(number,result);
+    }
+    private static void DFS(int number,List<Integer> list){
+        if(number == 0){
+            for (Integer integer : list) {
+                System.out.print(integer + " ");
+            }
+            System.out.println();
+            return;
+        }
+        if(number>=1){
+            list.add(1);
+            DFS(number-1,list);
+            list.remove(list.size()-1);
+        }
+        if(number>=2){
+            list.add(2);
+            DFS(number-2,list);
+            list.remove(list.size()-1);
+        }
+    }
+
     public static void main(String[] args) {
-        solution2(4);
+        solution3(4);
     }
 }
